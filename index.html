@@ -3,41 +3,953 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Diya Malik | India's No.1 Cricket Analysis</title>
-<link rel="stylesheet" href="style.css">
+
+<!-- =====================================================
+     META PIXEL CODE
+     ===================================================== -->
+<script>
+!function(f,b,e,v,n,t,s)
+{
+  if(f.fbq)return;
+  n=f.fbq=function(){
+    n.callMethod ?
+    n.callMethod.apply(n,arguments) :
+    n.queue.push(arguments)
+  };
+
+  if(!f._fbq)f._fbq=n;
+
+  n.push=n;
+  n.loaded=!0;
+  n.version='2.0';
+  n.queue=[];
+
+  t=b.createElement(e);
+  t.async=!0;
+  t.src=v;
+
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+}
+(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+/* अपना Meta Pixel ID यहां डालें */
+fbq('init', 'YOUR_PIXEL_ID');
+
+/* Page View */
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img
+height="1"
+width="1"
+style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+/>
+</noscript>
+
+<!-- ===================================================== -->
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:#ffffff;
+
+    background:
+    radial-gradient(
+        circle at 50% 35%,
+        #0d301d 0%,
+        #06170e 30%,
+        #020604 70%
+    );
+}
+
+/* Background */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,207,69,.035),
+        transparent 70%
+    );
+}
+
+/* Particles */
+
+.particles{
+    position:fixed;
+    inset:0;
+
+    opacity:.22;
+
+    background-image:
+    radial-gradient(
+        #9cffc4 1px,
+        transparent 1px
+    );
+
+    background-size:55px 55px;
+
+    animation:
+    drift 18s linear infinite;
+
+    pointer-events:none;
+}
+
+/* Glow */
+
+.glow{
+    position:fixed;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:.13;
+
+    pointer-events:none;
+}
+
+.glow1{
+    background:#00d86b;
+
+    top:-120px;
+    left:-100px;
+}
+
+.glow2{
+    background:#e7a700;
+
+    right:-120px;
+    bottom:-150px;
+}
+
+/* Main Card */
+
+.card{
+    position:relative;
+    z-index:3;
+
+    width:min(94%,560px);
+
+    padding:
+    34px 22px 28px;
+
+    text-align:center;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    border-radius:30px;
+
+    background:
+    rgba(2,12,7,.78);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 30px 90px #000,
+    0 0 80px rgba(19,190,95,.08);
+
+    animation:
+    cardIn .9s ease both;
+}
+
+/* Live Badge */
+
+.badge{
+    display:inline-block;
+
+    padding:
+    7px 13px;
+
+    border-radius:50px;
+
+    background:
+    rgba(30,210,112,.08);
+
+    border:
+    1px solid rgba(76,255,153,.25);
+
+    color:#72ffac;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    animation:
+    pulse 1.7s infinite;
+}
+
+/* Name */
+
+h1{
+    margin-top:13px;
+
+    font-size:
+    clamp(45px,10vw,70px);
+
+    font-weight:950;
+
+    letter-spacing:-3px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffe064,
+        #f2a915
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+/* Experience */
+
+.experience{
+    margin-top:5px;
+
+    color:#d8e5dd;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:1.7px;
+}
+
+/* Countdown */
+
+.timer{
+    display:flex;
+
+    justify-content:center;
+
+    gap:9px;
+
+    margin:
+    27px 0 25px;
+}
+
+.box{
+    width:83px;
+
+    padding:
+    12px 4px 10px;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+    inset 0 1px rgba(255,255,255,.06);
+
+    animation:
+    float 3s ease-in-out infinite;
+}
+
+.box:nth-child(2){
+    animation-delay:.2s;
+}
+
+.box:nth-child(3){
+    animation-delay:.4s;
+}
+
+.box:nth-child(4){
+    animation-delay:.6s;
+}
+
+.box strong{
+    display:block;
+
+    font-size:30px;
+
+    line-height:1;
+
+    font-variant-numeric:
+    tabular-nums;
+}
+
+.box span{
+    display:block;
+
+    margin-top:6px;
+
+    color:#8da599;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.4px;
+}
+
+/* Logo */
+
+.logo-wrap{
+    width:184px;
+    height:184px;
+
+    margin:
+    7px auto 25px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+}
+
+/* Photo Logo */
+
+.logo{
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    object-position:center 45%;
+
+    display:block;
+
+    border:
+    5px solid #ffffff;
+
+    box-shadow:
+    0 0 35px
+    rgba(255,193,37,.3);
+
+    position:relative;
+
+    z-index:2;
+
+    animation:
+    logoPulse 2s infinite;
+}
+
+/* Rings */
+
+.ring{
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(255,204,67,.25);
+}
+
+.ring1{
+    inset:2px;
+
+    animation:
+    spin 9s linear infinite;
+}
+
+.ring2{
+    inset:14px;
+
+    border-style:dashed;
+
+    animation:
+    spin 6s linear infinite reverse;
+}
+
+/* Join Button */
+
+.join{
+    height:62px;
+
+    width:min(100%,400px);
+
+    margin:auto;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    text-decoration:none;
+
+    color:#101006;
+
+    font-size:17px;
+
+    font-weight:950;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffe064,
+        #f2a915
+    );
+
+    box-shadow:
+    0 12px 35px
+    rgba(245,175,20,.25);
+
+    transition:.25s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Button Shine */
+
+.join::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:80%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    animation:
+    shine 2.8s infinite;
+}
+
+/* Telegram Icon */
+
+.telegram-icon{
+    width:25px;
+    height:25px;
+
+    fill:#101006;
+
+    position:relative;
+
+    z-index:2;
+
+    flex:none;
+}
+
+/* Button Text */
+
+.join span,
+.join b{
+    position:relative;
+
+    z-index:2;
+}
+
+.join b{
+    font-size:25px;
+}
+
+/* Button Hover */
+
+.join:hover{
+    transform:
+    translateY(-3px)
+    scale(1.01);
+
+    box-shadow:
+    0 18px 45px
+    rgba(245,175,20,.4);
+}
+
+/* Bottom Tag */
+
+.tag{
+    margin-top:25px;
+
+    font-size:17px;
+
+    font-weight:800;
+}
+
+.tag em{
+    font-style:normal;
+
+    color:#ffd44c;
+}
+
+/* Line */
+
+.line{
+    width:70px;
+
+    height:2px;
+
+    margin:
+    17px auto 12px;
+
+    background:#dca923;
+}
+
+/* Secure Text */
+
+.secure{
+    font-size:10px;
+
+    color:#789084;
+
+    letter-spacing:.5px;
+}
+
+/* Animations */
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.97);
+    }
+
+    to{
+        opacity:1;
+
+        transform:none;
+    }
+}
+
+@keyframes float{
+
+    50%{
+        transform:
+        translateY(-4px);
+    }
+}
+
+@keyframes pulse{
+
+    50%{
+        box-shadow:
+        0 0 20px
+        rgba(70,255,145,.16);
+    }
+}
+
+@keyframes logoPulse{
+
+    50%{
+        transform:
+        scale(1.035);
+
+        box-shadow:
+        0 0 48px
+        rgba(255,193,37,.42);
+    }
+}
+
+@keyframes spin{
+
+    to{
+        transform:
+        rotate(360deg);
+    }
+}
+
+@keyframes shine{
+
+    55%,
+    100%{
+        left:140%;
+    }
+}
+
+@keyframes drift{
+
+    to{
+        background-position:
+        55px 55px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:430px){
+
+    .card{
+        padding:
+        29px 14px 25px;
+    }
+
+    .timer{
+        gap:5px;
+    }
+
+    .box{
+        width:70px;
+    }
+
+    .box strong{
+        font-size:25px;
+    }
+
+    .logo-wrap{
+        width:164px;
+        height:164px;
+
+        margin-bottom:23px;
+    }
+
+    .logo{
+        width:136px;
+        height:136px;
+    }
+
+    .join{
+        height:59px;
+
+        font-size:15px;
+    }
+}
+
+</style>
 </head>
+
 <body>
+
+<!-- Background -->
 <div class="particles"></div>
-<div class="glow glow1"></div><div class="glow glow2"></div>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+
+<!-- Main Landing Page -->
 
 <main class="card">
-  <div class="badge">● LIVE ANALYSIS</div>
-  <h1>Diya Malik</h1>
-  <p class="experience">12+ Years Experience</p>
 
-  <div class="timer">
-    <div class="box"><strong id="days">00</strong><span>DAYS</span></div>
-    <div class="box"><strong id="hours">00</strong><span>HOURS</span></div>
-    <div class="box"><strong id="minutes">00</strong><span>MINUTES</span></div>
-    <div class="box"><strong id="seconds">30</strong><span>SECONDS</span></div>
-  </div>
+    <!-- Live Badge -->
 
-  <div class="logo-wrap">
-    <div class="ring ring1"></div><div class="ring ring2"></div>
-    <img class="logo" src="assets/diya-malik-photo.jpg" alt="Diya Malik">
-  </div>
+    <div class="badge">
+        ● LIVE ANALYSIS
+    </div>
 
-  <a class="join" href="#" onclick="joinNow(event)">
-    <svg class="telegram-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M21.8 3.2 18.7 20c-.23 1.19-.87 1.48-1.77.92l-4.86-3.58-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.95 9.02-8.15c.39-.35-.09-.55-.61-.2L6.35 13.9 1.6 12.42c-1.03-.32-1.05-1.03.22-1.51L20.4 3.7c.87-.32 1.63.2 1.4-.5Z"/>
-    </svg><span>JOIN NOW FOR FREE</span><b>→</b>
-  </a>
 
-  <div class="tag">India's <em>No.1</em> Cricket Analysis</div>
-  <div class="line"></div>
-  <p class="secure">✓ Trusted Cricket Analysis &nbsp; • &nbsp; 100% Free Join</p>
+    <!-- Name -->
+
+    <h1>
+        Diya Malik
+    </h1>
+
+
+    <!-- Experience -->
+
+    <p class="experience">
+        12+ Years Experience
+    </p>
+
+
+    <!-- Countdown -->
+
+    <div class="timer">
+
+        <div class="box">
+            <strong id="days">00</strong>
+            <span>DAYS</span>
+        </div>
+
+        <div class="box">
+            <strong id="hours">00</strong>
+            <span>HOURS</span>
+        </div>
+
+        <div class="box">
+            <strong id="minutes">00</strong>
+            <span>MINUTES</span>
+        </div>
+
+        <div class="box">
+            <strong id="seconds">30</strong>
+            <span>SECONDS</span>
+        </div>
+
+    </div>
+
+
+    <!-- Photo Logo -->
+
+    <div class="logo-wrap">
+
+        <div class="ring ring1"></div>
+
+        <div class="ring ring2"></div>
+
+        <!-- आपकी photo -->
+        <img
+            class="logo"
+            src="assets/diya-malik-photo.jpg"
+            alt="Diya Malik"
+        >
+
+    </div>
+
+
+    <!-- Telegram Join Button -->
+
+    <a
+        class="join"
+        href="#"
+        onclick="joinNow(event)"
+    >
+
+        <!-- Telegram Icon -->
+
+        <svg
+            class="telegram-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="
+                M21.8 3.2
+                18.7 20
+                c-.23 1.19-.87 1.48-1.77.92
+                l-4.86-3.58
+                -2.35 2.26
+                c-.26.26-.48.48-.98.48
+                l.35-4.95
+                9.02-8.15
+                c.39-.35-.09-.55-.61-.2
+                L6.35 13.9
+                1.6 12.42
+                c-1.03-.32-1.05-1.03.22-1.51
+                L20.4 3.7
+                c.87-.32 1.63.2 1.4-.5Z
+                "
+            />
+
+        </svg>
+
+
+        <span>
+            JOIN NOW FOR FREE
+        </span>
+
+
+        <b>
+            →
+        </b>
+
+    </a>
+
+
+    <!-- Bottom Text -->
+
+    <div class="tag">
+
+        India's
+        <em>No.1</em>
+        Cricket Analysis
+
+    </div>
+
+
+    <div class="line"></div>
+
+
+    <p class="secure">
+
+        ✓ Trusted Cricket Analysis
+        &nbsp; • &nbsp;
+        100% Free Join
+
+    </p>
+
 </main>
 
-<script src="script.js"></script>
+
+<script>
+
+/* =====================================================
+   COUNTDOWN
+   Starts from 00 : 00 : 00 : 30
+   ===================================================== */
+
+let remaining = 30;
+
+
+function updateCountdown(){
+
+    const days =
+        Math.floor(
+            remaining / 86400
+        );
+
+    const hours =
+        Math.floor(
+            (remaining % 86400) / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (remaining % 3600) / 60
+        );
+
+    const seconds =
+        remaining % 60;
+
+
+    document.getElementById("days")
+    .textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+    .textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+/* Initial */
+
+updateCountdown();
+
+
+/* Every Second */
+
+setInterval(function(){
+
+    remaining--;
+
+    /*
+      Countdown खत्म होने पर
+      फिर से 30 seconds से शुरू
+    */
+
+    if(remaining < 0){
+
+        remaining = 30;
+
+    }
+
+    updateCountdown();
+
+},1000);
+
+
+
+/* =====================================================
+   JOIN BUTTON + META PIXEL LEAD EVENT
+   ===================================================== */
+
+function joinNow(event){
+
+    event.preventDefault();
+
+
+    /*
+      Meta Pixel Lead Event
+    */
+
+    if(
+        typeof fbq === "function"
+    ){
+
+        fbq(
+            "track",
+            "Lead"
+        );
+
+    }
+
+
+    /*
+      यहां अपना Telegram username डालें
+
+      Example:
+
+      https://t.me/yourchannel
+
+    */
+
+    window.location.href =
+        "https://t.me/YOUR_TELEGRAM_USERNAME";
+
+}
+
+</script>
+
 </body>
 </html>
